@@ -5,6 +5,7 @@ import {
   createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
   signInWithGooglePopup,
+  signInWithFacebookPopup,
 } from "../../utils/fireabase/firebase.utils";
 
 import "./sign-in-form.styles.scss";
@@ -25,6 +26,12 @@ function SignIn() {
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
     await createUserDocumentFromAuth(user);
+  };
+
+  const signInWithFacebook = async () => {
+    const { user } = await signInWithFacebookPopup();
+    console.log(user);
+    // await createUserDocumentFromAuth(user);
   };
 
   const handleSubmit = async (event) => {
@@ -82,6 +89,13 @@ function SignIn() {
           <Button type="submit">Sign In</Button>
           <Button type="button" buttonType="google" onClick={signInWithGoogle}>
             Google sign in
+          </Button>
+          <Button
+            type="button"
+            buttonType="google"
+            onClick={signInWithFacebook}
+          >
+            Facebook sign in
           </Button>
         </div>
       </form>
