@@ -6,14 +6,15 @@ import { CartContext } from "../../contexts/cart.context";
 import "./cart-icon.styles.scss";
 
 function CartIcon() {
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  const { isCartOpen, setIsCartOpen, totalItemsInCart } =
+    useContext(CartContext);
   return (
     <div
       className="cart-icon-container"
       onClick={() => setIsCartOpen(!isCartOpen)}
     >
       <ShoppingIcon className="shopping-icon" />
-      <span className="item-count">0</span>
+      <span className="item-count">{totalItemsInCart}</span>
     </div>
   );
 }
