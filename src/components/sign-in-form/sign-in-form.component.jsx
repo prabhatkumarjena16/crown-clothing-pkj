@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
+import { BUTTON_TYPE_CLASSES } from "../button/button.component";
 
 import {
   createUserDocumentFromAuth,
@@ -86,14 +87,14 @@ function SignIn() {
         />
         <div className="buttons-container">
           <Button type="submit">Sign In</Button>
-          <Button type="button" buttonType="google" onClick={signInWithGoogle}>
-            Google sign in
-          </Button>
           <Button
             type="button"
-            buttonType="google"
-            onClick={signInWithFacebook}
+            buttonType={BUTTON_TYPE_CLASSES.google}
+            onClick={signInWithGoogle}
           >
+            Google sign in
+          </Button>
+          <Button type="button" onClick={signInWithFacebook}>
             Facebook sign in
           </Button>
         </div>
