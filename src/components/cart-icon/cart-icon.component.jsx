@@ -9,7 +9,7 @@ function CartIcon() {
   const { isCartOpen, setIsCartOpen, totalItemsInCart } =
     useContext(CartContext);
   return (
-    <CartIconContainer onClick={() => setIsCartOpen(!isCartOpen)}>
+    <CartIconContainer onClick={setIsCartOpen}>
       <ShoppingIcon className="shopping-icon" />
       <ItemCount>{totalItemsInCart}</ItemCount>
     </CartIconContainer>
